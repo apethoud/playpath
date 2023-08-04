@@ -1,7 +1,8 @@
 import { Text } from 'react-native';
 import { Slot } from 'expo-router';
+import React from 'react';
 
-export default function RootLayout() {
+const RootLayout: React.FC = () => {
   return (
     <>
       <Text>RootLayout</Text>
@@ -9,3 +10,5 @@ export default function RootLayout() {
     </>
   )
 }
+
+export default RootLayout;
