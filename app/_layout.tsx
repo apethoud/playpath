@@ -1,15 +1,18 @@
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 import { Slot } from 'expo-router';
-import React from 'react';
 
 import "../global.css";
 
 const RootLayout: React.FC = () => {
   return (
-    <View className="m-8">
-      <Text>RootLayout</Text>
-      <Slot />
-    </View>
+    <>
+      <StatusBar style="auto" />
+      <View className="flex-1 items-center justify-center bg-sky-200 mt-12 px-4">
+        <Slot />
+      </View>
+    </>
   )
 }
 
