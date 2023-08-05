@@ -9,7 +9,8 @@ import "../global.css";
 
 const RootLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({
-    'DMSerifDisplayRegular': require('../assets/fonts/DMSerifDisplay-Regular.ttf'),
+    'DMSerifRegular': require('../assets/fonts/DMSerifDisplay-Regular.ttf'),
+    'DMSansRegular': require('../assets/fonts/DMSans-VariableFont.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
