@@ -27,7 +27,7 @@ const RootLayout: React.FC = () => {
     <>
       <StatusBar style="auto" />
       <View 
-        className="flex-1 items-center justify-center bg-sky-200 mt-12 px-4"
+        className="flex-1 items-center justify-center mt-12 px-4"
         onLayout={onLayoutRootView}>
         <Slot />
       </View>
