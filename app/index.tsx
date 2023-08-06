@@ -1,13 +1,22 @@
 import { View } from 'react-native';
-import Header from '../UI-components/Header';
-import Text from '../UI-components/Text';
+import Header from '../components/Header';
+import Text from '../components/Text';
+import Button from '../components/Button';
 
 export default function Welcome() {
   return (
-    <View className="flex-1 items-center mt-12 p-4 w-full">
+    <View className="flex-1 items-center justify-around p-4 w-full">
       <Header centered>Find a great park for your kids</Header>
-      <View className="h-3/5" />
+      <View className="h-1/2 w-full bg-neutral-200" />
       <Text>PlayPath helps you find great parks to visit along your route while traveling with small kids.</Text>
+      <View className="">
+        <Button
+          text="Get Started"
+          onPress={() => {
+            console.log("button pressed")
+          }}
+        />
+      </View>
     </View>
   );
 }
