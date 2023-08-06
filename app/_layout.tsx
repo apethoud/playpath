@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import { Slot } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -26,11 +26,11 @@ const RootLayout: React.FC = () => {
   return (
     <>
       <StatusBar style="auto" />
-      <View 
-        className="flex-1 items-center justify-center mt-12 px-4"
+      <SafeAreaView 
+        className="flex-1 items-center justify-center bg-sky-400"
         onLayout={onLayoutRootView}>
         <Slot />
-      </View>
+      </SafeAreaView>
     </>
   )
 }
