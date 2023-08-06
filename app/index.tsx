@@ -9,14 +9,7 @@ export default function Welcome() {
       <Header centered>Find a great park for your kids</Header>
       <View className="h-1/2 w-full bg-neutral-200" />
       <Text>PlayPath helps you find great parks to visit along your route while traveling with small kids.</Text>
-      <View className="">
-        <Button
-          text="Get Started"
-          onPress={() => {
-            console.log("button pressed")
-          }}
-        />
-      </View>
+      <Button text="Get Started" navTo="search-criteria" />
     </View>
   );
 }
