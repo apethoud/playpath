@@ -8,6 +8,7 @@ export default function Text({
   huge,
   large,
   small,
+  bold,
   centered
 }: { 
   children: ReactNode, 
@@ -16,14 +17,16 @@ export default function Text({
   huge?: boolean,
   large?: boolean,
   small?: boolean,
+  bold?: boolean,
   centered?: boolean
 }) {
   return (
     <RNText 
-      style={{ fontFamily: displaySerif ? "DMSerifRegular" : "DMSansRegular" }}
+      style={{ fontFamily: displaySerif ? "DMSerifRegular" : bold ? "DMSansBold" : "DMSansRegular" }}
       // The tailwind compiler only processes valid tailwind classes that it sees in the files at the time of compilation of each individual file, so it won't accurately interpret class names that are assembled together after that time, such as this text size logic.
       className={`
         ${huge ? "text-3xl" : large ? "text-xl" : small ? "text-base" : "text-lg"}
+        ${bold ? "font-bold" : "font-normal"}
         ${light ? "text-neutral-50" : "text-neutral-900"}
         ${centered ? "text-center" : "text-left"}
       `}>
