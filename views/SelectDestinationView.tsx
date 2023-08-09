@@ -6,6 +6,7 @@ export default function SelectDestinationView() {
       <Text large bold>
         Where are you going?
       </Text>
+      
     </>
   )
 }

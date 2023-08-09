@@ -6,6 +6,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import "../global.css";
+import { DestinationProvider } from '../contexts/DestinationContext';
 
 const RootLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -30,7 +31,9 @@ const RootLayout: React.FC = () => {
       <SafeAreaView 
         className="flex-1 justify-left items-center"
         onLayout={onLayoutRootView}>
-        <Slot />
+          <DestinationProvider>
+            <Slot />
+          </DestinationProvider>
       </SafeAreaView>
     </>
   )
