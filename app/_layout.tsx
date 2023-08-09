@@ -1,15 +1,37 @@
-import { Text, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native';
 import { Slot } from 'expo-router';
-import React from 'react';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 import "../global.css";
 
 const RootLayout: React.FC = () => {
+  const [fontsLoaded] = useFonts({
+    'DMSerifRegular': require('../assets/fonts/DMSerifDisplay-Regular.ttf'),
+    'DMSansRegular': require('../assets/fonts/DMSans-VariableFont.ttf'),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View className="m-8">
-      <Text>RootLayout</Text>
-      <Slot />
-    </View>
+    <>
+      <StatusBar style="auto" />
+      <SafeAreaView 
+        className="flex-1 items-center justify-center"
+        onLayout={onLayoutRootView}>
+        <Slot />
+      </SafeAreaView>
+    </>
   )
 }
 
