@@ -2,8 +2,6 @@ import { Pressable, View } from "react-native";
 import Text from "./Text";
 import { useRouter } from "expo-router";
 
-import "../global.css";
-
 export default function Button({ navTo, secondary, text }: { navTo: string, secondary?: boolean, text: string }) {
   const navigation = useRouter()
 

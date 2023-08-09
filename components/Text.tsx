@@ -1,34 +1,18 @@
 import { ReactNode } from "react";
 import { Text as RNText } from "react-native";
 
-type TailwindTextSizes =
-  | "xs"
-  | "sm"
-  | "base"
-  | "lg"
-  | "xl"
-  | "2xl"
-  | "3xl"
-  | "4xl"
-  | "5xl"
-  | "6xl"
-  | "7xl"
-  | "8xl"
-  | "9xl"
-
 export default function Text({ 
   children, 
   light,
-  size
 }: { 
   children: ReactNode, 
   light?: boolean,
-  size?: TailwindTextSizes
 }) {
   return (
     <RNText 
       style={{ fontFamily: "DMSansRegular" }}
-      className={`text-${size ? size : "lg"} ${light ? "text-neutral-50" : "text-neutral-900"}`}>
+      // The tailwind compiler only processes valid tailwind classes that it sees in the files at the time of compilation of each individual file, so it won't accurately interpret class names that are assembled together after that time, such as this text size logic.
+      className={`text-xl ${light ? "text-neutral-50" : "text-neutral-900"}`}>
       {children}
     </RNText>
   )
