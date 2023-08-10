@@ -1,7 +1,7 @@
 import Button from "../../components/Button";
 import SelectAmenitiesView from "../../views/SelectAmenitiesView";
 import SelectDestinationView from "../../views/SelectDestinationView";
-import { useForm } from "react-hook-form"
+import { Control, useForm } from "react-hook-form";
 
 export default function SearchCriteriaView() {
   const { register, setValue, handleSubmit, control, formState: { errors } } = useForm({

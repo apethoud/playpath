@@ -1,8 +1,8 @@
+import { Control, UseFieldArrayProps } from "react-hook-form";
 import Text from "../components/Text";
-import { Control } from "react-hook-form"
 import TextInput from "../components/TextInput";
 
-export default function SelectDestinationView({ control, name }: { control: Control<{ destination: string }>, name: "destination" }) {
+export default function SelectDestinationView({ control, name }: UseFieldArrayProps) {
   return (
     <>
       <Text large bold>
