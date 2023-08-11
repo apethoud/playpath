@@ -6,7 +6,7 @@ import { exampleParkFeatures } from "../api/exampleData";
 
 export default function SelectParkFeaturesView() {
   return (
-    <View className="px-12 bg-purple-200">
+    <View className="my-4 px-12 bg-purple-200">
       <View className="mx-2">
         <Text large bold>
           What park features do you need?
