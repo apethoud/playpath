@@ -5,6 +5,7 @@ import SelectDestinationView from "../../views/SelectDestinationView";
 import * as Yup from 'yup';
 import Form from "../../components/Form";
 import FormSubmitButton from "../../components/FormSubmitButton";
+import { View } from "react-native";
 
 const validationSchema = Yup.object().shape({
   destinationAddress: Yup.string()

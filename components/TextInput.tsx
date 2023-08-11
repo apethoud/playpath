@@ -1,4 +1,4 @@
-import { TextInput as RNTextInput } from "react-native";
+import { TextInput as RNTextInput, View } from "react-native";
 import Text from "./Text";
 import { FieldProps } from "formik";
 
@@ -13,9 +13,9 @@ export default function TextInput({
   ...inputProps
 }: TextInputProps) {
   return (
-    <>
+    <View className="w-full px-8 py-2 flex-row items-center">
       <RNTextInput
-        className="border rounded w-full"
+        className="border rounded flex-1 p-2"
         placeholder={placeholder}
         onChangeText={text => onChange(name)(text)}
         onBlur={() => {
@@ -31,6 +31,6 @@ export default function TextInput({
           <Text>Something went wrong.</Text>
         </>
       )}
-    </>
+    </View>
   )
 }
