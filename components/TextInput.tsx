@@ -1,21 +1,28 @@
-import { Dispatch, SetStateAction } from "react";
-import { Control, Controller, UseFieldArrayProps } from "react-hook-form";
 import { TextInput as RNTextInput } from "react-native";
+import Text from "./Text";
 
-export default function CustomTextInput({ control, name }: UseFieldArrayProps) {
+export default function TextInput({
+  placeholder,
+  field: { name, onBlur, onChange, value },
+  form: { errors, touched, setFieldTouched },
+  ...inputProps
+}) {
   return (
-    <Controller
-      control={control}
-      render={({ field: { onChange, onBlur, value } }) => (
-        <RNTextInput
-          className="border rounded w-full"
-          onBlur={onBlur}
-          onChangeText={value => onChange(value)}
-          value={value}
-        />
-      )}
-      name={name}
-      rules={{ required: true }}
-    />
+    <>
+      <RNTextInput
+        className="border rounded w-full"
+        placeholder={placeholder}
+        onChangeText={text => onChange(name)(text)}
+        onBlur={() => {
+          setFieldTouched(name)
+          onBlur(name)
+        }}
+        value={value}
+        autoCorrect={false}
+        {...inputProps}
+      />
+      {errors[name] && touched[name]}
+      <Text>{errors[name]}</Text>
+    </>
   )
 }

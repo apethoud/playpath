@@ -1,6 +1,5 @@
 import { Pressable, View } from "react-native";
 import Text from "./Text";
-import { useRouter } from "expo-router";
 
 export default function Button({ onPress, secondary, text }: { onPress: () => void, secondary?: boolean, text: string }) {
   return (
