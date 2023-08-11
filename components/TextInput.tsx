@@ -13,7 +13,7 @@ export default function TextInput({
   ...inputProps
 }: TextInputProps) {
   return (
-    <View className="w-full px-8 py-2 flex-row items-center">
+    <View className="w-full py-2 flex-row items-center">
       <RNTextInput
         className="border rounded flex-1 p-2"
         placeholder={placeholder}
