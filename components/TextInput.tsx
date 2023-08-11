@@ -12,12 +12,6 @@ export default function TextInput({
   form: { errors, touched, setFieldTouched },
   ...inputProps
 }: TextInputProps) {
-  console.log("-----")
-  console.log({
-    errors: errors[name],
-    touched: touched[name]
-  })
-  console.log("touched is: ", touched)
   return (
     <>
       <RNTextInput
