@@ -1,12 +1,23 @@
 import { TextInput as RNTextInput } from "react-native";
 import Text from "./Text";
+import { FieldProps } from "formik";
+
+type TextInputProps = FieldProps & {
+  placeholder: string;
+}
 
 export default function TextInput({
   placeholder,
   field: { name, onBlur, onChange, value },
   form: { errors, touched, setFieldTouched },
   ...inputProps
-}) {
+}: TextInputProps) {
+  console.log("-----")
+  console.log({
+    errors: errors[name],
+    touched: touched[name]
+  })
+  console.log("touched is: ", touched)
   return (
     <>
       <RNTextInput
@@ -21,8 +32,11 @@ export default function TextInput({
         autoCorrect={false}
         {...inputProps}
       />
-      {errors[name] && touched[name]}
-      <Text>{errors[name]}</Text>
+      {errors[name] && touched[name] && (
+        <>
+          <Text>Something went wrong.</Text>
+        </>
+      )}
     </>
   )
 }

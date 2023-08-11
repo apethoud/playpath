@@ -12,12 +12,16 @@ const validationSchema = Yup.object().shape({
     .label('Destination Address')
 })
 
+interface FormValueTypes {
+  destinationAddress: string;
+}
+
 export default function SearchCriteriaView() {
   return (
     <Form
       initialValues={{ destinationAddress: '' }}
       validationSchema={validationSchema}
-      onSubmit={values => console.log(values)}>
+      onSubmit={(values: FormValueTypes) => console.log(values)}>
         <>
           <SelectDestinationView />
           <SelectAmenitiesView />

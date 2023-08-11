@@ -8,11 +8,6 @@ export default function SelectDestinationView() {
       <Text large bold>
         Where are you going?
       </Text>
-      {/* <TextInput 
-        name="destinationAddress"
-        placeholder="Enter address or city"
-        {...props}
-      /> */}
       <Field
         component={TextInput}
         name="destinationAddress"
