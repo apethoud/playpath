@@ -12,9 +12,9 @@ export default function FormCard({
   option: ParkFeaturesTypes,
   selected: boolean,
   selectedOptions: string[],
-  // setSelectedOptions: Dispatch<SetStateAction<string[]>>
+  setSelectedOptions: (v: string[]) => void
 }) {
-  const toggleCardSelection = (cardName) => {
+  const toggleCardSelection = (cardName: string) => {
     // if name is already in selectedOptions, remove it. If not, add it.
     if (selectedOptions.some(o => o === cardName)) {
       const filteredOptions = selectedOptions.filter(o => o !== cardName)

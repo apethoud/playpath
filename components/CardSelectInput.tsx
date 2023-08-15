@@ -15,25 +15,10 @@ export default function CardSelectInput({
   form: { errors, touched, setFieldTouched, setFieldValue },
   ...inputProps
 }: TextInputProps) {
-  // const [ selectedOptions, setSelectedOptions ] = useState<string[]>([])
-  // console.log("selectedOptions is: ", selectedOptions)
 
-  // useEffect(() => {
-  //   console.log("selectedOptions in useEffect: ", selectedOptions)
-  //   console.log("onChange is: ", onChange)
-  //   onChange(name)(selectedOptions)
-  // }, [onChange, selectedOptions])
-
-  const setValue = (v) => {
+  const setValue = (v: string[]) => {
     setFieldValue(name, v)
   }
-
-  // const updateSelectedOptions = (updatedOptions) => {
-  //   console.log("updatedOptions is: ", updatedOptions)
-  //   console.log("onChange(name) is: ", onChange(name))
-  //   console.log("onChange(name)(updatedOptions) is: ", onChange(name)(updatedOptions))
-  //   onChange(name)(updatedOptions)
-  // }
 
   return (
     <View className="w-full py-2 flex-row items-center">
@@ -41,7 +26,7 @@ export default function CardSelectInput({
         {options && options.map(option => (
           <FormCard 
             option={option}
-            selected={value.some(o => o === option.name)}
+            selected={value.some((o: string) => o === option.name)}
             selectedOptions={value}
             setSelectedOptions={setValue}
           />
