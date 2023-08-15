@@ -29,10 +29,10 @@ export default function FormCard({
     <Pressable 
       className={
         `border rounded p-2 w-5/12 mb-4 flex flex-col
-        ${selected ? "bg-green-400" : "bg-transparent"}`
+        ${selected ? "bg-neutral-300" : "bg-transparent"}`
       }
       onPress={() => toggleCardSelection(option.name)}>
-      <View className="w-18 h-12 bg-blue-400 m-2" />
+      <View className="w-18 h-12 bg-neutral-400 m-2" />
       <Text tiny centered>{option.name}</Text>
     </Pressable>
   )
