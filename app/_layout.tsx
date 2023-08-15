@@ -6,11 +6,13 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import "../global.css";
+import { DestinationProvider } from '../contexts/DestinationContext';
 
 const RootLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({
     'DMSerifRegular': require('../assets/fonts/DMSerifDisplay-Regular.ttf'),
-    'DMSansRegular': require('../assets/fonts/DMSans-VariableFont.ttf'),
+    'DMSansRegular': require('../assets/fonts/DMSans-Regular.ttf'),
+    'DMSansBold': require('../assets/fonts/DMSans-Bold.ttf')
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -27,9 +29,11 @@ const RootLayout: React.FC = () => {
     <>
       <StatusBar style="auto" />
       <SafeAreaView 
-        className="flex-1 items-center justify-center"
+        className="flex-1 justify-left items-center"
         onLayout={onLayoutRootView}>
-        <Slot />
+          <DestinationProvider>
+            <Slot />
+          </DestinationProvider>
       </SafeAreaView>
     </>
   )
