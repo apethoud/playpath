@@ -29,7 +29,9 @@ export default function FormCard({
     <Pressable 
       className={
         `border rounded p-2 w-5/12 mb-4 flex flex-col
-        ${selected ? "bg-neutral-300" : "bg-transparent"}`
+        ${selected 
+          ? "bg-neutral-200 border-neutral-400 shadow-lg" 
+          : "bg-white border-neutral-300 shadow"}`
       }
       onPress={() => toggleCardSelection(option.name)}>
       <View className="w-18 h-12 bg-neutral-400 m-2" />
