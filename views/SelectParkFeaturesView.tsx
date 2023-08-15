@@ -19,6 +19,7 @@ export default function SelectParkFeaturesView() {
       </View>
       <Field
         component={CardSelectInput}
+        name="selectedParkFeatures"
         options={exampleParkFeatures}
       />
     </View>

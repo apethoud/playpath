@@ -12,7 +12,7 @@ export default function FormCard({
   option: ParkFeaturesTypes,
   selected: boolean,
   selectedOptions: string[],
-  setSelectedOptions: Dispatch<SetStateAction<string[]>>
+  // setSelectedOptions: Dispatch<SetStateAction<string[]>>
 }) {
   const toggleCardSelection = (cardName) => {
     // if name is already in selectedOptions, remove it. If not, add it.

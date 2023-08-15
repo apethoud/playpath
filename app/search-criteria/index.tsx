@@ -21,7 +21,7 @@ interface FormValueTypes {
 export default function SearchCriteriaView() {
   return (
     <Form
-      initialValues={{ destinationAddress: '' }}
+      initialValues={{ destinationAddress: '', selectedParkFeatures: [] }}
       validationSchema={validationSchema}
       onSubmit={(values: FormValueTypes) => console.log(values)}>
         <>
