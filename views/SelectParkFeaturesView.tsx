@@ -5,6 +5,7 @@ import CardSelectInput from "../components/CardSelectInput";
 import { exampleParkFeatures } from "../api/exampleData";
 
 export interface ParkFeaturesTypes {
+  id: number;
   name: string;
   category: string;
 }

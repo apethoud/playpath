@@ -25,6 +25,7 @@ export default function CardSelectInput({
       <View className="flex-1 flex-row flex-wrap justify-between">
         {options && options.map(option => (
           <FormCard 
+            key={option.id}
             option={option}
             selected={value.some((o: string) => o === option.name)}
             selectedOptions={value}
