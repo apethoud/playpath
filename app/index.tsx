@@ -12,7 +12,7 @@ export default function Welcome() {
   return (
     <View className="flex-1 items-center justify-between p-4 w-full">
       <View className="w-full mt-24">
-        <Text displaySerif huge centered>Find a great park for your kids</Text>
+        <Text displaySerif huge centered>{"Find a great park\nfor your kids"}</Text>
         <Image 
           source={require('../assets/images/welcome-image.png')}
           resizeMode='contain'
