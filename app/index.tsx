@@ -17,7 +17,7 @@ export default function Welcome() {
           source={require('../assets/images/welcome-image.png')}
           resizeMode='contain'
           className="w-full my-16"
-          alt="A colorful illustration of a play structure and playground." />
+          alt="A children's play structure with twisty slide and a rocket ship spring rider." />
         <Text large centered>PlayPath helps you find great parks to visit along your route while traveling with small kids.</Text>
       </View>
       <Button text="Get Started" onPress={navigateToSearchCriteriaPage} />
