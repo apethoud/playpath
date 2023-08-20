@@ -4,7 +4,8 @@ import { Text as RNText } from "react-native";
 export default function Text({ 
   children, 
   displaySerif,
-  light,
+  green,
+  white,
   huge,
   large,
   small,
@@ -14,7 +15,8 @@ export default function Text({
 }: { 
   children: ReactNode, 
   displaySerif?: boolean,
-  light?: boolean,
+  green?: boolean,
+  white?: boolean,
   huge?: boolean,
   large?: boolean,
   small?: boolean,
@@ -24,12 +26,13 @@ export default function Text({
 }) {
   return (
     <RNText 
-      style={{ fontFamily: displaySerif ? "DMSerifRegular" : bold ? "DMSansBold" : "DMSansRegular" }}
-      // The tailwind compiler only processes valid tailwind classes that it sees in the files at the time of compilation of each individual file, so it won't accurately interpret class names that are assembled together after that time, such as this text size logic.
+      style={{ 
+        fontFamily: displaySerif ? "DMSerifRegular" : bold ? "DMSansBold" : "DMSansRegular"
+      }}
       className={`
-        ${huge ? "text-3xl" : large ? "text-xl" : small ? "text-base" : tiny? "text-sm" : "text-lg"}
+        ${huge ? "text-4xl" : large ? "text-xl" : small ? "text-base" : tiny? "text-sm" : "text-lg"}
         ${bold ? "font-bold" : "font-normal"}
-        ${light ? "text-neutral-50" : "text-neutral-900"}
+        ${green ? "text-elf-green-700" : white ? "text-neutral-50" : "text-neutral-900"}
         ${centered ? "text-center" : "text-left"}
       `}>
       {children}
