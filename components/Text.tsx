@@ -6,6 +6,7 @@ export default function Text({
   displaySerif,
   green,
   white,
+  grey,
   huge,
   large,
   small,
@@ -17,6 +18,7 @@ export default function Text({
   displaySerif?: boolean,
   green?: boolean,
   white?: boolean,
+  grey?: boolean,
   huge?: boolean,
   large?: boolean,
   small?: boolean,
@@ -32,7 +34,7 @@ export default function Text({
       className={`
         ${huge ? "text-4xl" : large ? "text-xl" : small ? "text-base" : tiny? "text-sm" : "text-lg"}
         ${bold ? "font-bold" : "font-normal"}
-        ${green ? "text-earth-kingdom-green-700" : white ? "text-neutral-50" : "text-neutral-900"}
+        ${green ? "text-earth-kingdom-green-700" : white ? "text-neutral-50" : grey ? "text-neutral-500" : "text-neutral-900"}
         ${centered ? "text-center" : "text-left"}
       `}>
       {children}

@@ -23,9 +23,10 @@ export default function CardSelectInput({
   return (
     <View className="w-full py-2 flex-row items-center">
       <View className="flex-1 flex-row flex-wrap justify-between">
-        {options && options.map(option => (
+        {options && options.map((option, index) => (
           <FormCard 
             key={option.id}
+            index={index}
             option={option}
             selected={value.some((o: string) => o === option.name)}
             selectedOptions={value}

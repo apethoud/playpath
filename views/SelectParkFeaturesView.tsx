@@ -19,6 +19,11 @@ export default function SelectParkFeaturesView() {
         <Text large bold>
           What park features do you need?
         </Text>
+        <View className="my-2">
+          <Text tiny grey>
+            {"(Optional, and you can change these later.)"}
+          </Text>
+        </View>
       </View>
       <Field
         component={CardSelectInput}
