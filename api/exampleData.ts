@@ -31,12 +31,18 @@ export const exampleParkFeatures = [
   },
   {
     id: 6,
+    name: "Public Restroom",
+    category: "amenities",
+    iconName: "publicRestroom"
+  },
+  {
+    id: 7,
     name: "Wheelchair-Accessible Parking Lot",
     category: "accessibility",
     iconName: "wheelchairCircle"
   },
   {
-    id: 7,
+    id: 8,
     name: "Wheelchair-Accessible Entrance",
     category: "accessibility",
     iconName: "wheelchair"
