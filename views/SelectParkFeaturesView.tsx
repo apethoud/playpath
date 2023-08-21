@@ -3,11 +3,13 @@ import Text from "../components/Text";
 import { Field } from "formik";
 import CardSelectInput from "../components/CardSelectInput";
 import { exampleParkFeatures } from "../api/exampleData";
+import { iconNameType } from "../components/Icon";
 
 export interface ParkFeaturesTypes {
   id: number;
   name: string;
   category: string;
+  iconName: iconNameType;
 }
 
 export default function SelectParkFeaturesView() {
