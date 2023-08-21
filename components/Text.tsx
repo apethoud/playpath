@@ -32,7 +32,7 @@ export default function Text({
       className={`
         ${huge ? "text-4xl" : large ? "text-xl" : small ? "text-base" : tiny? "text-sm" : "text-lg"}
         ${bold ? "font-bold" : "font-normal"}
-        ${green ? "text-elf-green-700" : white ? "text-neutral-50" : "text-neutral-900"}
+        ${green ? "text-earth-kingdom-green-700" : white ? "text-neutral-50" : "text-neutral-900"}
         ${centered ? "text-center" : "text-left"}
       `}>
       {children}
