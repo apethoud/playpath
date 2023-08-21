@@ -37,6 +37,11 @@ export default function FormCard({
       onPress={() => toggleCardSelection(option.name)}>
       <Icon name={option.iconName} />
       <Text tiny centered>{option.name}</Text>
+      {selected && (
+        <View className="absolute top-2 left-2">
+          <Icon name="checkmark" />
+        </View>
+      )}
     </Pressable>
   )
 }
