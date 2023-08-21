@@ -31,8 +31,8 @@ export default function FormCard({
       className={
         `border rounded p-2 w-5/12 mb-4 flex items-center flex-col
         ${selected 
-          ? "bg-neutral-200 border-neutral-400 shadow-lg" 
-          : "bg-white border-neutral-300 shadow"}`
+          ? "bg-water-tribe-blue-200 border-water-tribe-blue-400 shadow-lg" 
+          : "bg-earth-kingdom-green-50 border-earth-kingdom-green-200 shadow"}`
       }
       onPress={() => toggleCardSelection(option.name)}>
       <Icon name={option.iconName} />
