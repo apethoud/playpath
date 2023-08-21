@@ -2,6 +2,7 @@ import { Pressable, View } from "react-native";
 import Text from "./Text";
 import { Dispatch, SetStateAction } from "react";
 import { ParkFeaturesTypes } from "../views/SelectParkFeaturesView";
+import Icon from "./Icon";
 
 export default function FormCard({ 
   option,
@@ -28,14 +29,19 @@ export default function FormCard({
   return (
     <Pressable 
       className={
-        `border rounded p-2 w-5/12 mb-4 flex flex-col
+        `border rounded p-2 w-5/12 mb-4 flex items-center flex-col
         ${selected 
-          ? "bg-neutral-200 border-neutral-400 shadow-lg" 
-          : "bg-white border-neutral-300 shadow"}`
+          ? "bg-water-tribe-blue-200 border-water-tribe-blue-400 shadow-lg" 
+          : "bg-neutral-50 border-neutral-200 shadow"}`
       }
       onPress={() => toggleCardSelection(option.name)}>
-      <View className="w-18 h-12 bg-neutral-400 m-2" />
+      <Icon name={option.iconName} />
       <Text tiny centered>{option.name}</Text>
+      {selected && (
+        <View className="absolute top-2 left-2">
+          <Icon name="checkmark" />
+        </View>
+      )}
     </Pressable>
   )
 }
