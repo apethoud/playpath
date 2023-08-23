@@ -7,16 +7,25 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
 export default function SelectDestinationView() {
+  const CustomField = <Field
+      component={TextInput}
+      name="destinationAddress"
+      placeholder="Enter Address or city"
+    />
+
   return (
-    <View className="my-4 px-12">
+    <View className="my-4 px-12 w-full" style={{ zIndex: 9000, elevation: 100 }}>
       <View className="mx-2">
         <Text large bold>
           Where are you going?
         </Text>
       </View>
       <GooglePlacesAutocomplete 
-        placeholder="Enter address or city (GooglePlacesAutocomplete)"
+        // placeholder="Enter address or city (GooglePlacesAutocomplete)"
         query={{ key: API_KEY }}
+        textInputProps={{
+          inputComp: CustomField
+        }}
         onPress={(data, details) => {
           console.log("data is: ", data)
           console.log("details is: ", details)
@@ -26,12 +35,36 @@ export default function SelectDestinationView() {
         listEmptyComponent={() => (
           <Text>No results found.</Text>
         )}
+        styles={{
+          container: {
+            // zIndex: 10,
+            // elevation: 300,
+            height: 100,
+            overflow: 'visible',
+            backgroundColor: '#ff9999',
+            flexGrow: 0,
+            // flexShrink: 0
+          },
+          listView: {
+            position: 'absolute',
+            top: 44,
+            // left: 10,
+            // right: 10,
+            backgroundColor: '#9999ff',
+            borderRadius: 5,
+            borderWidth: 1,
+            borderColor: '#dddddd',
+            flex: 1,
+            // elevation: 3,
+            // zIndex: 10
+          }
+        }}
       />
-      <Field
+      {/* <Field
         component={TextInput}
         name="destinationAddress"
         placeholder="Enter Address or city"
-      />
+      /> */}
     </View>
   )
 }

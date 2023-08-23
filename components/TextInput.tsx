@@ -12,6 +12,8 @@ export default function TextInput({
   form: { errors, touched, setFieldTouched },
   ...inputProps
 }: TextInputProps) {
+  console.log("name is: ", name);
+  console.log("value is: ", value);
   return (
     <View className="w-full py-2 flex-row items-center">
       <RNTextInput
