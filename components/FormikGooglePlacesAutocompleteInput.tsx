@@ -19,21 +19,15 @@ export default function FormikGooglePlacesAutocompleteInput({
     <ScrollView>
       <GooglePlacesAutocomplete
         query={{ key: API_KEY }}
-        // suppressDefaultStyles
         textInputProps={{
-        //   // inputComp: TextInput,
           onChangeText: () => handleChange(name),
           onBlur: () => {
             setFieldTouched(name)
             handleBlur(name)
           },
-          // className: "border rounded border-neutral-400 flex-1 p-2"
         }}
         onPress={(data, details) => {
-          console.log("data is: ", data)
-          console.log("details is: ", details)
           formik.setFieldValue(name, data.description)
-          // also save it to the DestinationContext...
           setDestination({
             shortAddress: data.structured_formatting.main_text,
             placeId: data.place_id
@@ -47,11 +41,6 @@ export default function FormikGooglePlacesAutocompleteInput({
         styles={{
           container: {
             flex: 1,
-            // zIndex: 10,
-            // overflow: 'visible',
-            // height: 50,
-            // flexGrow: 0,
-            // flexShrink: 0,
           },
           textInputContainer: {
             flexDirection: 'row',
@@ -101,43 +90,6 @@ export default function FormikGooglePlacesAutocompleteInput({
           },
           powered: {},
         }}
-
-
-
-        // styles={{
-        //   container: {
-        // //     // zIndex: 10,
-        // //     // elevation: 300,
-        //     // height: 50,
-        //     // overflow: 'visible',
-        // //     backgroundColor: '#ff9999',
-        // //     flexGrow: 0,
-        // //     // flexShrink: 0
-        //   },
-        //   textInputContainer: {
-        //     // backgroundColor: "blue"
-        //     // height: 50,
-        //   },
-        //   textInput: {
-        //     borderWidth: 1,
-        //     borderColor: "#a3a3a3",
-        //     borderStyle: "solid",
-        //     // height: 50,
-        //   }
-        // //   listView: {
-        // //     position: 'absolute',
-        // //     top: 44,
-        // //     // left: 10,
-        // //     // right: 10,
-        // //     backgroundColor: '#9999ff',
-        // //     borderRadius: 5,
-        // //     borderWidth: 1,
-        // //     borderColor: '#dddddd',
-        // //     flex: 1,
-        // //     // elevation: 3,
-        // //     // zIndex: 10
-        // //   }
-        // }}
       />
     </ScrollView>
   )

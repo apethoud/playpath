@@ -7,7 +7,7 @@ import FormikGooglePlacesAutocompleteInput from '../components/FormikGooglePlace
 
 export default function SelectDestinationView({ handleChange, handleBlur, setFieldTouched }) {
   return (
-    <View className="my-4 px-12 w-full" style={{ zIndex: 9000, elevation: 100 }}>
+    <View className="my-4 px-12 w-full">
       <View className="mx-2">
         <Text large bold>
           Where are you going?
