@@ -2,6 +2,8 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import { TextInput, ScrollView } from 'react-native';
 import Text from '../components/Text';
 import { setFieldTouched, useFormikContext } from 'formik'
+import { useContext } from 'react'
+import { DestinationContext } from '../contexts/DestinationContext'
 
 const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
@@ -12,6 +14,7 @@ export default function FormikGooglePlacesAutocompleteInput({
   setFieldTouched
 }) {
   const formik = useFormikContext();
+  const { setDestination } = useContext(DestinationContext);
   return (
     <ScrollView>
       <GooglePlacesAutocomplete
@@ -31,6 +34,10 @@ export default function FormikGooglePlacesAutocompleteInput({
           console.log("details is: ", details)
           formik.setFieldValue(name, data.description)
           // also save it to the DestinationContext...
+          setDestination({
+            shortAddress: data.structured_formatting.main_text,
+            placeId: data.place_id
+          })
         }}
         onFail={error => console.log(error)}
         onNotFound={() => console.log("No results found.")}
