@@ -12,8 +12,6 @@ export default function TextInput({
   form: { errors, touched, setFieldTouched },
   ...inputProps
 }: TextInputProps) {
-  console.log("name is: ", name);
-  console.log("value is: ", value);
   return (
     <View className="w-full py-2 flex-row items-center">
       <RNTextInput
@@ -36,55 +34,3 @@ export default function TextInput({
     </View>
   )
 }
-
-// -----
-
-// function TextInput({ form, field: { name, onChange } }) {
-//   return (
-//     <RNTextInput 
-//     onChangeText={text => onChange(name)(text)}
-//     value={value}
-//     />
-//   )
-// }
-
-// const CustomField = <Field
-//   component={TextInput}
-//   name="destinationAddress"
-//   placeholder="Enter Address or city"
-// />
-
-// <GooglePlacesAutocomplete
-//   textInputProps={{
-//     // Doesn't work because inputComp doesn't process Field properly. It expects an input only.
-//     inputComp: CustomField
-//   }}
-// />
-
-// -----
-
-// // If inputComp expects an input only...
-
-// const CustomField = <Field
-//   component={FormikGooglePlacesAutocomplete}
-//   name="destinationAddress"
-//   placeholder="Enter Address or city"
-// />
-
-// function FormikGooglePlacesAutocomplete({ field: { name, onBlur, onChange, value }, form: { errors, touched, setFieldTouched }}) {
-//   return (
-//     <GooglePlacesAutocomplete
-//       suppressDefaultStyles
-//       textInputProps={{
-//         // Doesn't work because inputComp doesn't process Field properly. It expects an input only.
-//         inputComp: TextInput // (the one from RN)
-//         onChangeText: onChange
-//         onBlur: () => {
-//           setFieldTouched(name)
-//           onBlur(name)
-//         })
-//         className: "border rounded border-neutral-400 flex-1 p-2"
-//       }}
-//     />
-//   )
-// }
