@@ -3,16 +3,9 @@ import Text from "../components/Text";
 import TextInput from "../components/TextInput";
 import { Field } from "formik";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import FormikGooglePlacesAutocompleteInput from '../components/FormikGooglePlacesAutocompleteInput';
 
-const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-
-export default function SelectDestinationView() {
-  const CustomField = <Field
-      component={TextInput}
-      name="destinationAddress"
-      placeholder="Enter Address or city"
-    />
-
+export default function SelectDestinationView({ handleChange, handleBlur, setFieldTouched }) {
   return (
     <View className="my-4 px-12 w-full" style={{ zIndex: 9000, elevation: 100 }}>
       <View className="mx-2">
@@ -20,51 +13,13 @@ export default function SelectDestinationView() {
           Where are you going?
         </Text>
       </View>
-      <GooglePlacesAutocomplete 
-        // placeholder="Enter address or city (GooglePlacesAutocomplete)"
-        query={{ key: API_KEY }}
-        textInputProps={{
-          inputComp: CustomField
-        }}
-        onPress={(data, details) => {
-          console.log("data is: ", data)
-          console.log("details is: ", details)
-        }}
-        onFail={error => console.log(error)}
-        onNotFound={() => console.log("No results found.")}
-        listEmptyComponent={() => (
-          <Text>No results found.</Text>
-        )}
-        styles={{
-          container: {
-            // zIndex: 10,
-            // elevation: 300,
-            height: 100,
-            overflow: 'visible',
-            backgroundColor: '#ff9999',
-            flexGrow: 0,
-            // flexShrink: 0
-          },
-          listView: {
-            position: 'absolute',
-            top: 44,
-            // left: 10,
-            // right: 10,
-            backgroundColor: '#9999ff',
-            borderRadius: 5,
-            borderWidth: 1,
-            borderColor: '#dddddd',
-            flex: 1,
-            // elevation: 3,
-            // zIndex: 10
-          }
-        }}
-      />
-      {/* <Field
-        component={TextInput}
+      <FormikGooglePlacesAutocompleteInput
         name="destinationAddress"
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        setFieldTouched={setFieldTouched}
         placeholder="Enter Address or city"
-      /> */}
+      />
     </View>
   )
 }

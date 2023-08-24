@@ -1,7 +1,7 @@
 import SelectParkFeaturesView from "../../views/SelectParkFeaturesView";
 import SelectDestinationView from "../../views/SelectDestinationView";
 import * as Yup from 'yup';
-import Form from "../../components/Form";
+import { Formik } from "formik";
 import FormSubmitButton from "../../components/FormSubmitButton";
 
 const validationSchema = Yup.object().shape({
@@ -20,17 +20,24 @@ interface FormValueTypes {
 
 export default function SearchCriteriaView() {
   return (
-    <Form
+    <Formik
       initialValues={{ destinationAddress: '', selectedParkFeatures: [] }}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
+      validator={() => ({})}
       onSubmit={(values: FormValueTypes) => console.log(values)}>
-        <>
-          <SelectDestinationView />
-          <SelectParkFeaturesView />
-          <FormSubmitButton 
-            text="Find Parks On The Way" 
-          />
-        </>
-      </Form>
+        {({ handleChange, handleBlur, handleSubmit, setFieldTouched, values }) => (
+          <>
+            <SelectDestinationView
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            setFieldTouched={setFieldTouched}
+            />
+            <SelectParkFeaturesView />
+            <FormSubmitButton
+              text="Find Parks On The Way"
+            />
+          </>
+        )}
+      </Formik>
   )
 }
