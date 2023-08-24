@@ -22,8 +22,7 @@ export default function SearchCriteriaView() {
   return (
     <Formik
       initialValues={{ destinationAddress: '', selectedParkFeatures: [] }}
-      // validationSchema={validationSchema}
-      validator={() => ({})}
+      validationSchema={validationSchema}
       onSubmit={(values: FormValueTypes) => console.log(values)}>
         {({ handleChange, handleBlur, handleSubmit, setFieldTouched, values }) => (
           <>
