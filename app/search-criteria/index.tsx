@@ -3,6 +3,7 @@ import SelectDestinationView from "../../views/SelectDestinationView";
 import * as Yup from 'yup';
 import { Formik } from "formik";
 import FormSubmitButton from "../../components/FormSubmitButton";
+import { useRouter } from "expo-router";
 
 const validationSchema = Yup.object().shape({
   destinationAddress: Yup.string()
@@ -19,11 +20,15 @@ interface FormValueTypes {
 }
 
 export default function SearchCriteriaView() {
+  const navigation = useRouter();
   return (
     <Formik
       initialValues={{ destinationAddress: '', selectedParkFeatures: [] }}
       validationSchema={validationSchema}
-      onSubmit={(values: FormValueTypes) => console.log(values)}>
+      onSubmit={(values: FormValueTypes) => {
+        console.log(values);
+        navigation.push('park-selection')
+      }}>
         {({ handleChange, handleBlur, handleSubmit, setFieldTouched, values }) => (
           <>
             <SelectDestinationView

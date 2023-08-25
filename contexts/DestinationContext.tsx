@@ -13,7 +13,10 @@ interface ContextType {
 const DestinationContext = createContext<ContextType | null>(null)
 
 const DestinationProvider = ({ children }: { children: ReactNode }) => {
-  const [ destination, setDestination ] = useState({})
+  const [destination, setDestination] = useState({
+    shortAddress: "",
+    placeId: ""
+  })
 
   return (
     <DestinationContext.Provider value={{ destination, setDestination }}>
